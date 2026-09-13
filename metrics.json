@@ -1,0 +1,134 @@
+{
+  "scenarios": 7,
+  "expectations_met": 7,
+  "total_cost_units": 44.0,
+  "cost_if_everything_called": 175.0,
+  "saved_pct": 74.9,
+  "camara_apis": [
+    "location-verification",
+    "device-status",
+    "location-retrieval",
+    "congestion-insights",
+    "quality-on-demand",
+    "network-slice-device-attachment",
+    "geofencing-subscriptions",
+    "number-verification"
+  ],
+  "tools": [
+    "verify_location",
+    "check_reachability",
+    "retrieve_location",
+    "query_congestion",
+    "reserve_quality",
+    "attach_slice",
+    "watch_area",
+    "verify_number"
+  ],
+  "min_calls": 1,
+  "max_calls": 6,
+  "avg_calls": 2.7,
+  "levels_seen": [
+    "accounted",
+    "advise",
+    "search",
+    "warn"
+  ],
+  "per_scenario": [
+    {
+      "id": "hill-street-outside",
+      "title": "Enrolled, but outside the risk area",
+      "level": "accounted",
+      "expected": "accounted",
+      "met": true,
+      "calls": 1,
+      "spend": 2.0,
+      "apis": [
+        "location-verification"
+      ]
+    },
+    {
+      "id": "valley-farm-reachable",
+      "title": "Farm on the valley floor, phone answering",
+      "level": "warn",
+      "expected": "warn",
+      "met": true,
+      "calls": 2,
+      "spend": 3.0,
+      "apis": [
+        "location-verification",
+        "device-status"
+      ]
+    },
+    {
+      "id": "low-risk-advisory",
+      "title": "Inside the alert, up the slope",
+      "level": "advise",
+      "expected": "advise",
+      "met": true,
+      "calls": 2,
+      "spend": 3.0,
+      "apis": [
+        "location-verification",
+        "device-status"
+      ]
+    },
+    {
+      "id": "basement-flat-silent",
+      "title": "Basement flat, unreachable",
+      "level": "search",
+      "expected": "search",
+      "met": true,
+      "calls": 4,
+      "spend": 8.0,
+      "apis": [
+        "location-verification",
+        "device-status",
+        "location-retrieval",
+        "congestion"
+      ]
+    },
+    {
+      "id": "site-silent-saturated",
+      "title": "Site worker unreachable and the cell is saturated",
+      "level": "search",
+      "expected": "search",
+      "met": true,
+      "calls": 6,
+      "spend": 22.0,
+      "apis": [
+        "location-verification",
+        "device-status",
+        "location-retrieval",
+        "congestion",
+        "slice-attach",
+        "qod"
+      ]
+    },
+    {
+      "id": "boundary-uncertain",
+      "title": "The network answers PARTIAL on the boundary",
+      "level": "warn",
+      "expected": "warn",
+      "met": true,
+      "calls": 2,
+      "spend": 3.0,
+      "apis": [
+        "location-verification",
+        "device-status"
+      ]
+    },
+    {
+      "id": "enrol-from-list",
+      "title": "Enrol a line from the co-operative's list",
+      "level": "accounted",
+      "expected": "accounted",
+      "met": true,
+      "calls": 2,
+      "spend": 3.0,
+      "apis": [
+        "number-verification",
+        "geofencing"
+      ]
+    }
+  ]
+}
